@@ -6,7 +6,7 @@
         <input
           type="text"
           class="search-bar"
-          placeholder="世界中の都市名を英語で入力(London, Fukuoka...)"
+          placeholder="City Name (like Fukuoka)"
           v-model="query"
           @keypress="fetchWeather"
         />
@@ -25,6 +25,9 @@
           <div class="weather">{{ weather.weather[0].main }}</div>
           <!-- なぜweather.weatherではなくweather.weather[0]なのかはわからん -->
         </div>
+      </div>
+      <div class="enter-city" v-else>
+        Please enter the correct city name.
       </div>
     </main>
   </div>
@@ -117,7 +120,7 @@ main {
   padding: 15px;
 
   color: #313131;
-  font-size: 20px;
+  font-size: 16px;
 
   /* 初期化 */
   appearance: none;
@@ -183,5 +186,11 @@ main {
   font-weight: 700;
   font-style: italic;
   text-shadow: 3px 6px rgba(0, 0, 0, 0.25);
+}
+
+.enter-city{
+  text-align: center;
+  color: #fff;
+  font-size: 16px;
 }
 </style>
